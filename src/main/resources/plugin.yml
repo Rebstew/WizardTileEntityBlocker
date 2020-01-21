@@ -1,0 +1,13 @@
+name: WizardTileEntityBlocker
+main: main.WizardTileEntityBlocker
+version: 1.0.0
+author: Twitter @Rebstew_
+api-version: 1.15
+permissions:
+commands:
+  wtileentityblocker:
+    description: Allows user to block a tile entity usage in a world or see which ones are blocked.
+    aliases: [wteb, wizardtileentityblocker, tileentityblocker, teb]
+    permission: wizardtileentityblocker.admin
+    permission-message: You are not allowed to use this command!
+    usage: "usage: /<command> <list|block> <world> [tile entity name]"
