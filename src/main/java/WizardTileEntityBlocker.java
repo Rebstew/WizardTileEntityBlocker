@@ -1,6 +1,5 @@
 package java;
 
-import com.sun.istack.internal.NotNull;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -24,7 +23,6 @@ public class WizardTileEntityBlocker extends JavaPlugin {
 
     }
 
-    @NotNull
     List<String> getWorldConfig(String worldName){
         return worldConfigsMap.containsKey(worldName) ? worldConfigsMap.get(worldName) : new ArrayList<>();
     }
