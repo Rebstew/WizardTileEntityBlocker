@@ -1,5 +1,5 @@
 name: WizardTileEntityBlocker
-main: main.WizardTileEntityBlocker
+main: net.rebstew.wizardtileentityblocker.WizardTileEntityBlocker
 version: 1.0.0
 author: Twitter @Rebstew_
 api-version: 1.15

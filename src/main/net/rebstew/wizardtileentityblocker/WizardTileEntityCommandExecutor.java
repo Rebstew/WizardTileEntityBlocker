@@ -1,4 +1,4 @@
-package java;
+package net.rebstew.wizardtileentityblocker;
 
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -42,10 +42,11 @@ public class WizardTileEntityCommandExecutor implements CommandExecutor {
       if(args.length < 3) return false;
 
       String blockName = args[2];
-      Material blockMaterial = Material.getMaterial(blockName);
+      Material blockMaterial = Material.getMaterial(blockName.toUpperCase());
 
       if(blockMaterial == null){
-        commandSender.sendMessage("unrecognized material " + blockName + ", check the list on https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html");
+        commandSender.sendMessage("unrecognized material " + blockName
+                + ", check the list on https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html");
         return true;
       }
 
@@ -55,7 +56,8 @@ public class WizardTileEntityCommandExecutor implements CommandExecutor {
       }
 
       List<String> currentBlockedMaterials = plugin.blockMaterialInWorld(worldName, blockMaterial);
-      commandSender.sendMessage("Material " + blockMaterial.name() + " blocked in world " + worldName + " with success!");
+      commandSender.sendMessage("Material " + blockMaterial.name()
+              + " blocked in world " + worldName + " with success!");
       commandSender.sendMessage("Current blocked materials on this world: " + currentBlockedMaterials);
       return true;
     }

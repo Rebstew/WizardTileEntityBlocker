@@ -1,4 +1,4 @@
-package java;
+package net.rebstew.wizardtileentityblocker;
 
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -14,9 +14,6 @@ import java.util.List;
 
 public class WizardTileEntityEventHandler implements Listener {
 
-
-
-
   private WizardTileEntityBlocker plugin;
 
   WizardTileEntityEventHandler(WizardTileEntityBlocker plugin) {
@@ -31,7 +28,7 @@ public class WizardTileEntityEventHandler implements Listener {
     List<String> worldConfig = plugin.getWorldConfig(worldName);
     if(!worldConfig.isEmpty()){
       if( (inventoryType instanceof AnvilInventory && worldConfig.contains(Material.ANVIL.name()))
-        || (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.GRINDSTONE.name()))
+        | (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.GRINDSTONE.name()))
       ){
         e.setCancelled(true);
         e.getPlayer().sendMessage("You can't use this block on this world!");
@@ -40,19 +37,17 @@ public class WizardTileEntityEventHandler implements Listener {
 
   }
 
-  @EventHandler
-  public void onRightClick(PlayerInteractEvent e){
-    if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
-      String worldName = e.getPlayer().getWorld().getName();
-      Material material = e.getMaterial();
-
-      List<String> worldConfig = plugin.getWorldConfig(worldName);
-      if(!worldConfig.isEmpty()){
-        if(worldConfig.contains(material.name())){
-          e.setCancelled(true);
-          e.getPlayer().sendMessage("You can't use this block on this world!");
-        }
-      }
-    }
-  }
+//  public void onRightClick(PlayerInteractEvent e){
+//    if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
+//      String worldName = e.getPlayer().getWorld().getName();
+//      Material material = e.getMaterial();
+//
+//      List<String> worldConfig = plugin.getWorldConfig(worldName);
+//      if(!worldConfig.isEmpty()){
+//        if(worldConfig.contains(material.name())){
+//          e.setCancelled(true);
+//        }
+//      }
+//    }
+//  }
 }

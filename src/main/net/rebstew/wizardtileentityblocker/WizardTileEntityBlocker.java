@@ -1,4 +1,4 @@
-package java;
+package net.rebstew.wizardtileentityblocker;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -24,15 +24,27 @@ public class WizardTileEntityBlocker extends JavaPlugin {
     }
 
     List<String> getWorldConfig(String worldName){
-        return worldConfigsMap.containsKey(worldName) ? worldConfigsMap.get(worldName) : new ArrayList<>();
+        List<String> result = new ArrayList<>();
+
+        if(worldConfigsMap.containsKey(worldName)){
+            result.addAll(worldConfigsMap.get(worldName));
+        }
+
+        if(worldConfigsMap.containsKey("any")){
+            result.addAll(worldConfigsMap.get("any"));
+        }
+
+        return result;
     }
 
     List<String> blockMaterialInWorld(String worldName, Material material){
-        List<String> currentStrings = getConfig().getStringList("worlds." + worldName);
+        List<String> currentStrings = getWorldConfig(worldName);
 
         if(!currentStrings.contains(material.name())){
             currentStrings.add(material.name());
         }
+
+        worldConfigsMap.put(worldName, currentStrings);
 
         writeWorldsMap();
 
