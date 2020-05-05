@@ -29,6 +29,10 @@ public class WizardTileEntityEventHandler implements Listener {
     if(!worldConfig.isEmpty()){
       if( (inventoryType instanceof AnvilInventory && worldConfig.contains(Material.ANVIL.name()))
         | (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.GRINDSTONE.name()))
+        | (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.DISPENSER.name()))
+        | (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.HOPPER.name()))
+        | (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.DROPPER.name()))
+        | (inventoryType instanceof GrindstoneInventory && worldConfig.contains(Material.HOPPER_MINECART.name()))
       ){
         e.setCancelled(true);
         e.getPlayer().sendMessage("You can't use this block on this world!");

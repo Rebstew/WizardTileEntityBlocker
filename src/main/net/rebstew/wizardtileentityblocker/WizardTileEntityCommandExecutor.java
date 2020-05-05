@@ -13,7 +13,12 @@ public class WizardTileEntityCommandExecutor implements CommandExecutor {
   private WizardTileEntityBlocker plugin;
 
   private List<Material> allowedMaterials = Arrays.asList(
-    Material.GRINDSTONE, Material.ANVIL
+    Material.GRINDSTONE,
+    Material.ANVIL,
+    Material.HOPPER,
+    Material.DROPPER,
+    Material.DISPENSER,
+    Material.HOPPER_MINECART
   );
 
   WizardTileEntityCommandExecutor(WizardTileEntityBlocker plugin) {
